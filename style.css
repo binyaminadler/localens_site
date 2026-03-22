@@ -964,7 +964,11 @@ body {
 
   /* Hero */
   .hero {
-    padding-top: 5rem;
+    padding-top: 6rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    overflow-x: hidden;
+    width: 100vw;
   }
   .hero-title {
     font-size: 2.2rem;
@@ -975,7 +979,7 @@ body {
   }
   .hero-actions {
     flex-direction: column;
-    padding: 0 1rem;
+    padding: 0;
   }
   .btn {
     width: 100%;
@@ -986,9 +990,12 @@ body {
   .hero-mockup-wrapper {
     overflow: hidden;
     width: 100vw;
+    max-width: 100%;
     position: relative;
     padding: 0;
-    margin: 0 -1rem; /* Defeat container padding */
+    margin: 0 -1rem; /* Defeat root padding */
+    display: flex;
+    justify-content: center;
   }
 
   .hero-mockup {
