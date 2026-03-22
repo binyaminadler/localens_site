@@ -542,6 +542,115 @@ body {
   color: #facc15;
 }
 
+/* -------------------------------------
+ * MOBILE RESPONSIVENESS
+ * ------------------------------------- */
+
+@media (max-width: 768px) {
+  /* Layout */
+  .container {
+    padding: 1rem;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* Nav */
+  .nav-content {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  .nav-cta {
+    width: 100%;
+    text-align: center;
+    padding: 0.6rem;
+  }
+
+  /* Hero */
+  .hero {
+    padding-top: 5rem;
+  }
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+    padding: 0;
+  }
+  .btn-large {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Hero Mockup scaling */
+  .hero-mockup-wrapper {
+    overflow: hidden;
+    width: 100vw;
+    position: relative;
+    padding: 0;
+    margin: 0 -1rem; /* Defeat container padding */
+  }
+
+  .hero-mockup {
+    max-width: none;
+    width: 1000px;
+    transform: perspective(1000px) rotateX(5deg) scale(0.35);
+    transform-origin: top center;
+    margin-top: 2rem;
+    margin-bottom: -220px; /* Offset the gap created by scaling down a 400px+ height block */
+  }
+
+  .hero-mockup:hover {
+    transform: perspective(1000px) rotateX(0deg) translateY(-5px) scale(0.36);
+  }
+
+  /* Stats / Metrics */
+  .metrics {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+    margin: 1rem 0;
+  }
+  .metric-card {
+    padding: 1.5rem;
+    width: 100%;
+  }
+  .metric-value {
+    font-size: 2.5rem;
+  }
+
+  /* Bento Grid */
+  .bento-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .bento-large {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+
+  /* CTA Section */
+  .cta-card {
+    padding: 2.5rem 1.5rem;
+  }
+  .cta-card h2 {
+    font-size: 2rem;
+  }
+  
+  /* Footer */
+  .footer-content {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}
+
+
 .hi-fi-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -834,9 +943,109 @@ body {
 
 /* Media Queries */
 @media (max-width: 900px) {
-  .bento-large { grid-column: span 3; }
+  /* Layout */
+  .container {
+    padding: 1rem;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* Nav */
+  .nav-content {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  .nav-cta {
+    width: 100%;
+    text-align: center;
+    padding: 0.6rem;
+  }
+
+  /* Hero */
+  .hero {
+    padding-top: 5rem;
+  }
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+    padding: 0;
+  }
+  .hero-actions {
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Hero Mockup scaling */
+  .hero-mockup-wrapper {
+    overflow: hidden;
+    width: 100vw;
+    position: relative;
+    padding: 0;
+    margin: 0 -1rem; /* Defeat container padding */
+  }
+
+  .hero-mockup {
+    max-width: none;
+    width: 1000px;
+    transform: perspective(1000px) rotateX(5deg) scale(0.35);
+    transform-origin: top center;
+    margin-top: 2rem;
+    margin-bottom: -220px;
+  }
+
+  .hero-mockup:hover {
+    transform: perspective(1000px) rotateX(0deg) translateY(-5px) scale(0.36);
+  }
+
+  /* Stats / Metrics */
+  .metrics {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+    margin: 1rem 0;
+  }
+  .metric-card {
+    padding: 1.5rem;
+    width: 100%;
+  }
+  .metric-value {
+    font-size: 2.5rem;
+  }
+
+  /* Bento Grid */
   .wide-content { flex-direction: column; }
-  .bento-grid { grid-template-columns: 1fr; }
+  .bento-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .bento-large { grid-column: span 1; grid-row: span 1; }
   .bento-wide { grid-column: span 1; }
-  .metrics { flex-direction: column; gap: 2rem; }
+  .section-title {
+    font-size: 2rem;
+  }
+  .section-head {
+    margin-bottom: 2rem;
+  }
+
+  /* CTA Section */
+  .cta-card {
+    padding: 2.5rem 1.5rem;
+  }
+  .cta-card h2 {
+    font-size: 2rem;
+  }
+  
+  /* Footer */
+  .footer {
+    padding: 2rem 1rem;
+  }
+  .footer-content {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
 }
