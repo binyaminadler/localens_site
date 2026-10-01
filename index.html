@@ -3,21 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%233b82f6'%3E%3Cpath d='M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z'/%3E%3C/svg%3E" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#030712" />
     <title>LocaLens | Acquire The Future of Personal Media</title>
     <!-- Google Fonts: Inter & Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=block" />
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>
-    <!-- Abstract Background -->
-    <div class="bg-glow bg-glow-1"></div>
-    <div class="bg-glow bg-glow-2"></div>
-    <div class="bg-glow bg-glow-3"></div>
-    <div class="grid-overlay"></div>
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <!-- Abstract Background (fixed + clipped so it never widens the page on mobile) -->
+    <div class="bg-layer" aria-hidden="true">
+      <div class="bg-glow bg-glow-1"></div>
+      <div class="bg-glow bg-glow-2"></div>
+      <div class="bg-glow bg-glow-3"></div>
+      <div class="grid-overlay"></div>
+    </div>
 
     <!-- Navigation -->
     <header class="navbar fade-in">
@@ -35,13 +41,14 @@
       <div class="hero-chip fade-in" style="animation-delay: 0.1s;">
         <span class="live-dot"></span> Private SaaS Platform Available
       </div>
-      <h1 class="hero-title fade-in" style="animation-delay: 0.2s;">
-        Next-Gen AI Media <br/><span class="text-gradient">Intelligence</span>
+      <h1 class="hero-title">
+        <span class="title-line blur-in" style="animation-delay: 0.2s;">Next-Gen AI Media</span>
+        <span class="title-line blur-in" style="animation-delay: 0.35s;"><span class="text-gradient">Intelligence</span></span>
       </h1>
-      <p class="hero-subtitle fade-in" style="animation-delay: 0.3s;">
+      <p class="hero-subtitle fade-in" style="animation-delay: 0.45s;">
         A highly engineered, privacy-first alternative to Google Photos. Built with Edge AI facial recognition, HDBSCAN event clustering, and a blazing-fast local-first architecture. Ready for enterprise scaling.
       </p>
-      <div class="hero-actions fade-in" style="animation-delay: 0.4s;">
+      <div class="hero-actions fade-in" style="animation-delay: 0.55s;">
         <a href="#demo" class="btn btn-primary">
           Explore Architecture
           <span class="material-symbols-outlined">arrow_forward</span>
@@ -50,16 +57,16 @@
           View Metrics
         </a>
       </div>
-      
-      <!-- Dashboard Mockup Wrapper for Responsive Scaling -->
-      <div class="hero-mockup-wrapper">
-        <div class="hero-mockup fade-in up" style="animation-delay: 0.6s;">
+
+      <!-- Dashboard Mockup (desktop app on large screens, mobile app on phones) -->
+      <div class="hero-mockup-wrapper fade-in up" style="animation-delay: 0.7s;">
+        <div class="hero-mockup">
           <div class="browser-bar">
             <div class="dots"><span></span><span></span><span></span></div>
             <div class="url">app.localens.com/gallery</div>
           </div>
           <div class="mockup-content hi-fi" dir="ltr">
-            <!-- Sidebar (Left) -->
+            <!-- Sidebar (Left) / Tab bar on mobile -->
             <div class="mockup-sidebar hi-fi-real-sidebar">
               <div class="real-brand">
                 <div class="real-logo-icon"><span class="material-symbols-outlined">photo_library</span></div>
@@ -68,14 +75,14 @@
                   <span>ENTERPRISE SAAS</span>
                 </div>
               </div>
-              
+
               <div class="real-nav">
                 <div class="real-nav-item active"><span class="material-symbols-outlined active-icon">image</span> Gallery</div>
                 <div class="real-nav-item"><span class="material-symbols-outlined">group</span> People</div>
                 <div class="real-nav-item"><span class="material-symbols-outlined">event</span> Events</div>
                 <div class="real-nav-item"><span class="material-symbols-outlined">photo_album</span> Albums</div>
               </div>
-              
+
               <div class="real-storage">
                  <div class="storage-text"><span>Storage</span> <span class="text-blue">85%</span></div>
                  <div class="storage-bar-bg"><div class="storage-bar-fill"></div></div>
@@ -86,9 +93,12 @@
             <!-- Main Content -->
             <div class="mockup-main hi-fi-main">
               <div class="hi-fi-real-header">
-                <div class="real-search"><span class="material-symbols-outlined">search</span> Search...</div>
+                <div class="real-search">
+                  <span class="material-symbols-outlined">search</span>
+                  <span class="typed" data-typed="Beach sunset 2024|Grandma's 80th birthday|Paris trip with the kids|Photos of Emma">Search...</span><span class="typed-caret"></span>
+                </div>
                 <div class="real-header-actions">
-                  <span class="material-symbols-outlined">cloud_upload</span>
+                  <span class="material-symbols-outlined upload-icon">cloud_upload</span>
                   <div class="relative-icon">
                     <span class="material-symbols-outlined">notifications</span>
                     <span class="notif-dot"></span>
@@ -101,7 +111,7 @@
                 <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=400&q=80" alt="photo" class="mock-img delay-2"/>
                 <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80" alt="photo" class="mock-img delay-3"/>
                 <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=400&q=80" alt="photo" class="mock-img delay-4"/>
-                
+
                 <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&q=80" alt="photo" class="mock-img delay-2"/>
                 <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80" alt="photo" class="mock-img delay-1"/>
                 <img src="https://images.unsplash.com/photo-1536640712-4d4c36ff0e4e?w=400&q=80" alt="photo" class="mock-img delay-4"/>
@@ -118,24 +128,24 @@
     </section>
 
     <!-- Metrics Strip -->
-    <section id="metrics" class="metrics flex-center">
+    <section id="metrics" class="metrics">
       <div class="metric-card reveal">
-        <h3 class="metric-value text-gradient">$1.8K</h3>
+        <h3 class="metric-value text-gradient" data-count="1.8" data-decimals="1" data-prefix="$" data-suffix="K">$1.8K</h3>
         <p class="metric-label">Beta Revenue</p>
       </div>
-      <div class="metric-card reveal" style="transition-delay: 0.1s;">
-        <h3 class="metric-value text-gradient">100ms</h3>
+      <div class="metric-card reveal" style="--d: 0.1s;">
+        <h3 class="metric-value text-gradient" data-count="100" data-suffix="ms">100ms</h3>
         <p class="metric-label">Max Engine Latency</p>
       </div>
-      <div class="metric-card reveal" style="transition-delay: 0.1s;">
-        <h3 class="metric-value text-gradient">100%</h3>
+      <div class="metric-card reveal" style="--d: 0.15s;">
+        <h3 class="metric-value text-gradient" data-count="100" data-suffix="%">100%</h3>
         <p class="metric-label">Edge Privacy</p>
       </div>
-      <div class="metric-card reveal" style="transition-delay: 0.2s;">
-        <h3 class="metric-value text-gradient">512D</h3>
+      <div class="metric-card reveal" style="--d: 0.2s;">
+        <h3 class="metric-value text-gradient" data-count="512" data-suffix="D">512D</h3>
         <p class="metric-label">ArcFace Vectors</p>
       </div>
-      <div class="metric-card reveal" style="transition-delay: 0.3s;">
+      <div class="metric-card reveal" style="--d: 0.3s;">
         <h3 class="metric-value text-gradient">Zero</h3>
         <p class="metric-label">Cloud Dependencies</p>
       </div>
@@ -156,29 +166,59 @@
           </div>
           <h3>Local AI Facial Recognition</h3>
           <p>Utilizes InsightFace models directly on the user's hardware. Extracts 512D vectors and seamlessly merges identities over time—competing directly with Apple & Google Photos without compromising user privacy.</p>
-          <div class="bento-visual">
-            <div class="face-scanner">
-              <div class="scan-line"></div>
+          <div class="bento-visual face-visual" aria-hidden="true">
+            <div class="face-scanner"></div>
+            <span class="face-pill"><span class="live-dot"></span> Scanning on-device</span>
+            <div class="face-cards">
+              <figure class="face-card" style="--i: 0; --x: 34%; --y: 30%; --w: 36%; --h: 36%;">
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80" alt="" loading="lazy" />
+                <span class="face-box"></span>
+                <figcaption><span>Emma</span><span class="face-conf">98.7%</span></figcaption>
+              </figure>
+              <figure class="face-card" style="--i: 1; --x: 34%; --y: 14%; --w: 32%; --h: 36%;">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&q=80" alt="" loading="lazy" />
+                <span class="face-box"></span>
+                <figcaption><span>Maya</span><span class="face-conf">97.2%</span></figcaption>
+              </figure>
+              <figure class="face-card" style="--i: 2; --x: 32%; --y: 8%; --w: 34%; --h: 38%;">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80" alt="" loading="lazy" />
+                <span class="face-box"></span>
+                <figcaption><span>Lea</span><span class="face-conf">99.1%</span></figcaption>
+              </figure>
             </div>
+            <div class="embedding">
+              <div class="embedding-head"><span>ArcFace embedding</span><span>512-D</span></div>
+              <div class="embedding-bars"></div>
+            </div>
+            <div class="scan-line"></div>
           </div>
         </div>
 
         <!-- Bento 2 -->
-        <div class="bento-item reveal" style="transition-delay: 0.1s;">
+        <div class="bento-item reveal" style="--d: 0.1s;">
           <div class="bento-icon">
             <span class="material-symbols-outlined">auto_awesome_mosaic</span>
           </div>
           <h3>HDBSCAN Event Clustering</h3>
           <p>No manual album curation. Geographic and temporal metadata is clustered using advanced spatial algorithms to group vacations, birthdays, and trips automatically.</p>
+          <div class="mini-visual cluster-visual" aria-hidden="true">
+            <span class="cluster-label" style="--x: 20%; --y: 62%; --c: #818cf8;">Paris '24</span>
+            <span class="cluster-label" style="--x: 51%; --y: 58%; --c: #e879f9;">Birthday</span>
+            <span class="cluster-label" style="--x: 81%; --y: 64%; --c: #22d3ee;">Beach</span>
+          </div>
         </div>
 
         <!-- Bento 3 -->
-        <div class="bento-item reveal" style="transition-delay: 0.2s;">
+        <div class="bento-item reveal" style="--d: 0.2s;">
           <div class="bento-icon">
             <span class="material-symbols-outlined">speed</span>
           </div>
           <h3>Virtuoso Engine</h3>
           <p>The client uses custom React virtualized grids and deterministic SQLite pagination, guaranteeing 60fps scrolling performance. Battle-tested in production, seamlessly handling archives exceeding 17,000 media assets.</p>
+          <div class="mini-visual virtual-visual" aria-hidden="true">
+            <div class="virtual-track"></div>
+            <span class="fps-pill"><span class="live-dot"></span> 60 FPS</span>
+          </div>
         </div>
 
         <!-- Bento 4 -->
